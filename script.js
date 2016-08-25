@@ -34,7 +34,7 @@ var loadItem = function (itemid, itemlistId, three) {
     });
 };
 var getItemName = function (id) {
-    console.log(id);
+    //console.log(id);
     for (i = 0; i < allItems.length; i++) {
         if (allItems[i].id === id) {
             return allItems[i];
@@ -72,7 +72,7 @@ var checkDone = function () {
         }
     }
     if (done) {
-        console.log(items);
+        //console.log(items);
         console.log("done loading");
         loadTable();
     }
