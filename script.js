@@ -92,10 +92,14 @@ var loadTable = function () {
                     "</td><td>" + ((parseInt(items[i].four.selling) / 4) - (parseInt(items[i].three.buying) / 3)) +
                     "</td></tr>"
                 $('#decanting tbody').append(newRow);
+            }else {
+                console.log(items[i]);
             }
         }
         $('#decanting').DataTable({
-            "order": [[5, "desc"]]
+            "order": [[5, "desc"]],
+            "paging": false
+            
         });
     }
 }
