@@ -72,7 +72,7 @@ var checkDone = function () {
         }
     }
     if (done) {
-        //console.log(items);
+        console.log(items);
         console.log("done loading");
         loadTable();
     }
@@ -83,15 +83,20 @@ var loadTable = function () {
         loading = true;
         console.log("loading table");
         for (i = 0; i < items.length; i++) {
-            var newRow = "<tr><td>" + items[i].three.name.replace("(3)", "") +
-                "</td><td>" + items[i].three.buying +
-                "</td><td>" + items[i].four.buying +
-                "</td><td>" + (parseInt(items[i].three.buying) / 3) +
-                "</td><td>" + (parseInt(items[i].four.buying) / 4) +
-                "</td><td>" + ((parseInt(items[i].four.buying) / 4) - (parseInt(items[i].three.buying) / 3)) +
-                "</td></tr>"
-            $('#decanting tbody').append(newRow);
+            if (items[i].three.buying != 0 && items[i].four.selling != 0) {
+                var newRow = "<tr><td>" + items[i].three.name.replace("(3)", "") +
+                    "</td><td>" + items[i].three.buying +
+                    "</td><td>" + items[i].four.buying +
+                    "</td><td>" + (parseInt(items[i].three.buying) / 3) +
+                    "</td><td>" + (parseInt(items[i].four.selling) / 4) +
+                    "</td><td>" + ((parseInt(items[i].four.selling) / 4) - (parseInt(items[i].three.buying) / 3)) +
+                    "</td></tr>"
+                $('#decanting tbody').append(newRow);
+            }
         }
+        $('#decanting').DataTable({
+            "order": [[5, "desc"]]
+        });
     }
 }
 
