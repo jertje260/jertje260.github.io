@@ -83,7 +83,7 @@ var loadTable = function () {
         loading = true;
         console.log("loading table");
         for (i = 0; i < items.length; i++) {
-            //if (items[i].three.buying != 0 && items[i].four.selling != 0) {
+            if (items[i].three.buying != 0 && items[i].four.selling != 0) {
                 var newRow = "<tr><td>" + items[i].three.name.replace("(3)", "") +
                     "</td><td>" + items[i].three.buying +
                     "</td><td>" + items[i].four.buying +
@@ -92,9 +92,9 @@ var loadTable = function () {
                     "</td><td>" + ((parseInt(items[i].four.selling) / 4) - (parseInt(items[i].three.buying) / 3)) +
                     "</td></tr>"
                 $('#decanting tbody').append(newRow);
-            // }else {
-            //     console.log(items[i]);
-            // }
+            }else {
+                console.log(items[i]);
+            }
         }
         $('#decanting').DataTable({
             "order": [[5, "desc"]],
