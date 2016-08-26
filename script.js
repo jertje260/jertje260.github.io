@@ -112,7 +112,7 @@ var recalculate = function(){
     // console.log(t);
     // console.log(f);
     // console.log(out);
-    $('#output').text(": " + out);
+    $('#output').text(out);
 }
 
 loadItems();
