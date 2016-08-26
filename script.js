@@ -109,9 +109,9 @@ var recalculate = function(){
     var t = $('#3').val();
     var f = $('#4').val();
     var out = (f/4-t/3);
-    console.log(t);
-    console.log(f);
-    console.log(out);
+    // console.log(t);
+    // console.log(f);
+    // console.log(out);
     $('#output').text(": " + out);
 }
 
