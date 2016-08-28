@@ -2,7 +2,7 @@ var ids;
 var itemsURL = "objects.json";
 var idsURL = "pots.json";
 var allItems;
-var rsbase = "http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item="
+var rsbase = "https://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item="
 var baseurl = "https://api.rsbuddy.com/grandExchange?a=guidePrice&i=";
 var items = [];
 var loading = false;
@@ -14,7 +14,7 @@ var loadItem = function (itemid, itemlistId, three) {
         datatype: "json",
         itemlistId: itemlistId,
         three: three,
-        url: "" + baseurl + itemid,
+        url: "" + rsbase + itemid,
         success: function (data) {
             //console.log(data);
             item = data;
