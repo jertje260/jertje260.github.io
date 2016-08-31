@@ -55,6 +55,7 @@ function WebApp() {
         var params = self.getUrlVars();
         console.log(params);
         if (params.game == "runescape") {
+            $('#Runescape').addClass('active');
             switch (params.page) {
                 case "decanting":
                     document.title = "RS - Decanting";
@@ -66,14 +67,13 @@ function WebApp() {
                     document.title = "RS - Jewellery";
                     break;
             }
-
-
             self.setCtrl(new RSCtrl(self, params.page));
-
         } else if (location.pathname == "?game=factorio") {
+            $('#Factorio').addClass('active');
             document.title = "Factorio"
             self.setCtrl(new FactorioCtrl(self));
         } else {
+            $('#home').addClass('active');
             document.title = "Webpage RS & Factorio";
             self.setCtrl(new BaseCtrl(self));
         }
