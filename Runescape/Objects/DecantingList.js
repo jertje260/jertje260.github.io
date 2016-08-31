@@ -59,7 +59,8 @@ function DecantingList(ctrl) {
         }
         $('#decanting').DataTable({
             "order": [[5, "desc"]],
-            "paging": false
+            "paging": false,
+            "bFilter" : false
             
         });
     }
