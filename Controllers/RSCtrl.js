@@ -8,7 +8,7 @@ function RSCtrl(app) {
 
     self.load = function () {
 
-        if (self.itemList == undefined) {
+        if (self.itemList.length ==0) {
             $.ajax({
                 url: self.itemsUrl,
                 success: function (data) {
@@ -22,7 +22,7 @@ function RSCtrl(app) {
     }
 
     self.draw = function () {
-        app.loadPage(app.pagelist["runescape/?page=decanting"], function () {
+        app.loadPage(app.pagelist["/runescape/?page=decanting"], function () {
             console.log("decanting page loaded");
             self.loadDecanting();
         });
@@ -37,6 +37,14 @@ function RSCtrl(app) {
     self.loadDecanting = function () {
         if (self.decanting == undefined) {
             self.decanting = new DecantingList(self);
+        }
+    }
+
+    self.getItemName = function(id){
+        for(i = 0; i < self.itemList.length; i++){
+            if(self.itemList[i].id == id){
+                return self.itemList[i].name;
+            }
         }
     }
 

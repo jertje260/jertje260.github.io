@@ -7,7 +7,7 @@ function BaseCtrl(app){
         self.bindEvents();
     }
     self.draw = function () {
-        
+        app.loadPage(app.pagelist["/"]);
     }
     
     self.bindEvents = function(){

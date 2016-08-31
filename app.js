@@ -1,13 +1,19 @@
 function WebApp() {
     var self = this;
+    self.url;
     self.pagelist = {};
     self.pagelist["/runescape/"] = "\/Runescape\/Templates\/home.html";
     self.pagelist["/runescape/?page=decanting"] = "\/Runescape\/Templates\/decanting.html";
+    self.pagelist["/"] = "\/Templates\/home.html"
 
     self.init = function () {
         console.log("initializing");
-        self.bindEvents();
-        self.loadFromUrl();
+        $.get("config.json", function (data) {
+            self.url = data.url;
+            self.bindEvents();
+            self.loadFromUrl();
+        })
+
 
     }
 
@@ -21,13 +27,14 @@ function WebApp() {
 
     self.loadPage = function (url, callback) {
         $.get(url, function (html) {
-            
+            //console.log(html);
             $('#view').empty().append(html);
             console.log("loading view");
             if (callback != undefined) {
                 callback();
             }
-        });
+        })
+
     }
 
     self.loadFromUrl = function () {
@@ -44,7 +51,7 @@ function WebApp() {
 
     self.bindEvents = function () {
         $('nav a').click(function (e) {
-            var href = e.target.href.replace('https://jertje260.github.io/', '');
+            var href = e.target.href.replace(self.url, '');
             // HISTORY.PUSHSTATE
             history.pushState({ "URL": href, "toLoad": href, }, 'New URL: ' + href, href);
             console.log("creating pushstate for " + href);
