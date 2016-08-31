@@ -7,8 +7,8 @@ function RSCtrl(app) {
     self.itemList = [];
 
     self.load = function () {
-
-        if (self.itemList.length ==0) {
+        document.title = "RS - Decanting"
+        if (self.itemList.length == 0) {
             $.ajax({
                 url: self.itemsUrl,
                 success: function (data) {
@@ -23,7 +23,6 @@ function RSCtrl(app) {
 
     self.draw = function () {
         app.loadPage(app.pagelist["/runescape/?page=decanting"], function () {
-            document.title = "RS - Decanting"
             console.log("decanting page loaded");
             self.loadDecanting();
         });
@@ -41,9 +40,9 @@ function RSCtrl(app) {
         }
     }
 
-    self.getItemName = function(id){
-        for(i = 0; i < self.itemList.length; i++){
-            if(self.itemList[i].id == id){
+    self.getItemName = function (id) {
+        for (i = 0; i < self.itemList.length; i++) {
+            if (self.itemList[i].id == id) {
                 return self.itemList[i].name;
             }
         }

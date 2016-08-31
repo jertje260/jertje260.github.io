@@ -41,10 +41,13 @@ function WebApp() {
         $('.active').removeClass('active');
         console.log("loading " + location.pathname + location.search);
         if (location.search == "?game=runescape") {
+            document.title = "RS - Decanting"
             self.setCtrl(new RSCtrl(self));
         } else if (location.pathname == "?game=factorio") {
+            document.title = "Factorio"
             self.setCtrl(new FactorioCtrl(self));
         } else {
+            document.title = "Webpage RS & Factorio";
             self.setCtrl(new BaseCtrl(self));
         }
     }
