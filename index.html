@@ -24,7 +24,15 @@
         <div id="navbar-collapse-1" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
                 <li id="home" class="active"> <a href="/">Home</a> </li>
-                <li id="Runescape"> <a href="/?game=runescape">Runescape</a> </li>
+                <li id="Runescape" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="/?game=runescape">Runescape</a>
+                    <ul class="dropdown-menu">
+
+                        <li><a class="dropdown-item" href="/?game=runescape&page=decanting">Decanting</a></li>
+                        <li><a class="dropdown-item" href="/?game=runescape&page=smithing">Smithing WIP</a></li>
+                        <li><a class="dropdown-item" href="/?game=runescape&page=jewellery">Jewellery WIP</a></li>
+                </li>
+                </ul>
                 <li id="Factorio"> <a href="/?game=factorio">Factorio</a> </li>
             </ul>
         </div>

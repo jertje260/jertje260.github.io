@@ -1,4 +1,4 @@
-function RSCtrl(app) {
+function RSCtrl(app, page) {
     var self = this;
     self.baseurl = "https://api.rsbuddy.com/grandExchange?a=guidePrice&i=";
     self.pngurl = "http://cdn.rsbuddy.com/items/"; //+id.png 
@@ -12,7 +12,6 @@ function RSCtrl(app) {
                 url: self.itemsUrl,
                 success: function (data) {
                     self.itemList = data;
-                    //console.log(self.itemList);
                 }
             });
         }
@@ -21,12 +20,18 @@ function RSCtrl(app) {
     }
 
     self.draw = function () {
-        app.loadPage(app.pagelist["/runescape/?page=decanting"], function () {
-            console.log("decanting page loaded");
-            self.loadDecanting();
-        });
+        if (page == "decanting") {
+            app.loadPage(app.pagelist["/runescape/?page=decanting"], function () {
+                console.log("decanting page loaded");
+                self.loadDecanting();
+            });
 
-
+        } else if(page == "smithing"){
+            app.loadPage(app.pagelist["/runescape/?page=smithing"], function () {
+                console.log("smithing page loaded");
+                self.loadSmithing();
+            });
+        }
     }
 
     self.bindEvents = function () {

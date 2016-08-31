@@ -1,4 +1,4 @@
-function DecantingList(ctrl) {
+function SmithingList(ctrl) {
     var self = this;
     self.ctrl = ctrl;
     self.idsURL = "\/Runescape\/Resources\/pots.json";
@@ -7,12 +7,6 @@ function DecantingList(ctrl) {
     self.ids = [];
 
     self.loadItems = function () {
-        $('#3').change(function () {
-            self.recalculate();
-        });
-        $('#4').change(function () {
-            self.recalculate();
-        })
         console.log("loading items");
         $.ajax({
             url: self.idsURL,
@@ -70,18 +64,12 @@ function DecantingList(ctrl) {
 
             });
         }
-    }
+    };
 
-    self.recalculate = function () {
-        console.log('recalculating');
-        var t = $('#3').val();
-        var f = $('#4').val();
-        var out = (f / 4 - t / 3);
-        // console.log(t);
-        // console.log(f);
-        // console.log(out);
-        $('#output').text(out);
-    }
+
+
+
+
 
     self.loadItems();
 }

@@ -4,6 +4,7 @@ function WebApp() {
     self.pagelist = {};
     self.pagelist["/runescape/"] = "\/Runescape\/Templates\/home.html";
     self.pagelist["/runescape/?page=decanting"] = "\/Runescape\/Templates\/decanting.html";
+    self.pagelist["/runescape/?page=smithing"] = "\/Runescape\/Templates\/smithing.html";
     self.pagelist["/"] = "\/Templates\/home.html"
 
     self.init = function () {
@@ -37,12 +38,38 @@ function WebApp() {
 
     }
 
+    self.getUrlVars = function () {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+
     self.loadFromUrl = function () {
         $('.active').removeClass('active');
         console.log("loading " + location.pathname + location.search);
-        if (location.search == "?game=runescape") {
-            document.title = "RS - Decanting"
-            self.setCtrl(new RSCtrl(self));
+        var params = self.getUrlVars();
+        console.log(params);
+        if (params.game == "runescape") {
+            switch (params.page) {
+                case "decanting":
+                    document.title = "RS - Decanting";
+                    break;
+                case "smithing":
+                    document.title = "RS - Smithing";
+                    break;
+                case "jewellery":
+                    document.title = "RS - Jewellery";
+                    break;
+            }
+
+
+            self.setCtrl(new RSCtrl(self, params.page));
+
         } else if (location.pathname == "?game=factorio") {
             document.title = "Factorio"
             self.setCtrl(new FactorioCtrl(self));
