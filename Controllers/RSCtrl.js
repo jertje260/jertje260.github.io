@@ -23,6 +23,7 @@ function RSCtrl(app) {
 
     self.draw = function () {
         app.loadPage(app.pagelist["/runescape/?page=decanting"], function () {
+            document.title = "RS - Decanting"
             console.log("decanting page loaded");
             self.loadDecanting();
         });
