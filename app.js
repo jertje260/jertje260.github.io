@@ -44,7 +44,7 @@ function WebApp() {
 
     self.bindEvents = function () {
         $('nav a').click(function (e) {
-            var href = e.target.href.replace('http://localhost:8080', '');
+            var href = e.target.href.replace('https://jertje260.github.io/', '');
             // HISTORY.PUSHSTATE
             history.pushState({ "URL": href, "toLoad": href, }, 'New URL: ' + href, href);
             console.log("creating pushstate for " + href);
