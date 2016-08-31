@@ -1,0 +1,256 @@
+#field{
+    border-collapse: collapse;
+    position: relative;
+    clear:both;
+    display: inline;
+}
+
+#field th {
+    border: 1px solid black;
+}
+
+#legendTable {
+    border-collapse: collapse;
+    position: relative;
+    clear:both;
+    display: inline;
+}
+
+#legendTable th td{
+    border: 1px solid black;
+}
+
+.field{
+    word-break: break-all; 
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    background-color: deepskyblue;
+
+}
+#spinner {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: url('./Resources/ring.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+.clicked {
+    background-color: yellow;
+    z-index: 0;
+}
+
+.clicked.boom:not(.ship){
+    background-color: orangered;
+    z-index: 0;
+}
+
+#ships{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    float: left;
+
+}
+#ships td, #ships tr,#ships th{
+    width: auto;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.ship {
+    margin:0px auto;
+    background-color: orange;
+    position:relative;
+    z-index: 1;
+   
+}
+.ship:after{
+    background-color: deepskyblue;
+    position: absolute;
+    content: '';
+    top:5px;
+    left:5px;
+    right:5px;
+    bottom:5px;
+    z-index: -1;
+    display: block;
+
+}
+
+.Eshot:not(.hit) {
+    margin:0px auto;
+    background-color: white;
+    position:relative;
+    z-index: 1;
+}
+
+.Eshot:not(.hit):after{
+    background-color: deepskyblue;
+    position: absolute;
+    content: '';
+    top:5px;
+    left:5px;
+    right:5px;
+    bottom:5px;
+    z-index: -1;
+    display: block;
+}
+
+.Eshot.clicked:not(.hit):after{
+    background-color: yellow;
+    position: absolute;
+    content: '';
+    top:5px;
+    left:5px;
+    right:5px;
+    bottom:5px;
+    z-index: -1;
+    display: block;
+}
+
+
+.ship.clicked:after{
+    background-color: yellow;
+    position: absolute;
+    content: '';
+    top:5px;
+    left:5px;
+    right:5px;
+    bottom:5px;
+    z-index: -1;
+    display: block;
+}
+
+.ship.clicked.boom:after{
+    background-color: orangered;
+    position: absolute;
+    content: '';
+    top:5px;
+    left:5px;
+    right:5px;
+    bottom:5px;
+    z-index: -1;
+    display: block;
+}
+
+.ship.Eshot.hit {
+    margin:0px auto;
+    background-color: red;
+    position:relative;
+    z-index: 0;
+   
+}
+
+
+h1,h2,h3,h4,h5{
+    position: relative;
+    clear:both;
+    display: inline;
+}
+p{
+    clear:both;
+}
+.hidden{
+    display:none;
+}
+.placed{
+    word-wrap: break-word; 
+    width:50px;
+}
+div.showme {
+    margin: auto;
+    width:90%;
+    align-content: center;
+}
+.modal-header{
+    background-color: #337ab7;
+    color: #fff;
+}
+nav div {
+    margin-left: 0px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;   
+    width: auto;
+}
+.navbar-brand{
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;   
+    width: auto;
+}
+.right{
+    float: right;
+    margin-left: 15px;
+    overflow: hidden;
+}
+
+#allGames tbody tr{
+     margin-left: 0px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;   
+    cursor: pointer;
+}
+#allGames{
+        margin-top: 30px;
+}
+
+#gamepage {
+    overflow: hidden;
+}
+.left{
+    float:left;
+}
+.center{
+    margin: 0 auto;
+}
+
+#board{
+    float: left;
+    width: 550px;
+}
+#legend{
+    float: left;
+    width: 200px;
+    margin-right: 20px;
+}
+#shipDisplay{
+    float: left;
+    width: 250px;
+}
+.showme {
+    display: block;
+}
+
+.hideme {
+    display: none;
+}

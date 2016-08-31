@@ -9,32 +9,7 @@ var items = [];
 var loading = false;
 var clickedItems;
 
-var loadItem = function (itemid, itemlistId, three) {
-    //item.load(baseurl+itemid);
-    $.ajax({
-        type: "GET",
-        datatype: "json",
-        itemlistId: itemlistId,
-        three: three,
-        url: "" + baseurl + itemid,
-        success: function (data) {
-            //console.log(data);
-            item = data;
-            ti = getItemName(itemid);
-            if (ti != undefined) {
-                item.name = ti.name;
-                item.id = ti.id;
-            }
-            if (three) {
-                items[itemlistId].three = item;
-            } else {
-                items[itemlistId].four = item;
-            }
-            checkDone();
-        }
 
-    });
-};
 var getItemName = function (id) {
     //console.log(id);
     for (i = 0; i < allItems.length; i++) {
@@ -44,27 +19,7 @@ var getItemName = function (id) {
     }
     return null;
 }
-var loadItems = function () {
-    $.ajax({
-        url: itemsURL
-    }).done(function (data) {
-        allItems = data;
-        $.ajax({
-            url: idsURL
-        }).done(function (result) {
-            //console.log(allItems);
-            ids = result;
-            for (i = 0; i < ids.length; i++) {
-                items[i] = {};
-                items[i].three = {};
-                items[i].four = {};
-                loadItem(ids[i].three, i, true);
-                loadItem(ids[i].four, i, false);
-            }
-        });
 
-    });
-}
 
 var checkDone = function () {
     var done = true;
