@@ -7,7 +7,6 @@ function RSCtrl(app) {
     self.itemList = [];
 
     self.load = function () {
-        document.title = "RS - Decanting"
         if (self.itemList.length == 0) {
             $.ajax({
                 url: self.itemsUrl,
