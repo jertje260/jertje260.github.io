@@ -21,7 +21,7 @@ function Item(id, list) {
                 self.selling = data.selling;
                 self.buyingQuantity = data.buyingQuantity;
                 self.sellingQuantity = data.sellingQuantity;
-                console.log(self);
+                //console.log(self);
                 list.checkDone();
             }
 

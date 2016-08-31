@@ -13,7 +13,7 @@ function RSCtrl(app) {
                 url: self.itemsUrl,
                 success: function (data) {
                     self.itemList = data;
-                    console.log(self.itemList);
+                    //console.log(self.itemList);
                 }
             });
         }
