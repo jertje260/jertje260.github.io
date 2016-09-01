@@ -17,13 +17,18 @@ body.loading {
     overflow: hidden;   
 }
 
+.tab{
+    padding-left: 6em;
+    position: absolute;
+}
+
 /* Anytime the body has the loading class, our
    modal element will be visible */
 body.loading .modal {
     display: block;
 }
 #smithselector {
-    width: 100px;
+    width: 120px;
     margin-right: 20px;
 }
 .form-group {

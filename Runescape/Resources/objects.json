@@ -12042,5 +12042,30 @@
   {
     "id": 13190,
     "name": "Old school bond"
+  },
+  {
+    "id": 19570,
+    "name": "Bronze javelin head"
+  },
+  {
+    "id": 19572,
+    "name": "Iron javelin head"
+  },
+  {
+    "id": 19574,
+    "name": "Steel javelin head"
+  },
+  {
+    "id": 19576,
+    "name": "Mithril javelin head"
+  },
+  {
+    "id": 19578,
+    "name": "Adamantite javelin head"
+  },
+  {
+    "id": 19580,
+    "name": "Rune javelin head"
   }
+  
 ]

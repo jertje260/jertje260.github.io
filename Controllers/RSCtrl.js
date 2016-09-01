@@ -4,6 +4,7 @@ function RSCtrl(app, page) {
     self.pngurl = "http://cdn.rsbuddy.com/items/"; //+id.png 
     self.itemsUrl = "\/Runescape\/Resources\/objects.json"
     self.decanting;
+    self.smithing;
     self.itemList = [];
 
     self.load = function () {
@@ -41,6 +42,12 @@ function RSCtrl(app, page) {
     self.loadDecanting = function () {
         if (self.decanting == undefined) {
             self.decanting = new DecantingList(self);
+        }
+    }
+
+    self.loadSmithing = function(){
+        if(self.smithing == undefined){
+            self.smithing = new SmithingList(self);
         }
     }
 

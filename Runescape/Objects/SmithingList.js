@@ -1,25 +1,32 @@
 function SmithingList(ctrl) {
     var self = this;
     self.ctrl = ctrl;
-    self.idsURL = "\/Runescape\/Resources\/pots.json";
+    self.idsURL = "\/Runescape\/Resources\/bars.json";
+    self.bar = {};
     self.items = [];
     self.loading = false;
     self.ids = [];
+    self.tabledata;
+    self.table;
+
 
     self.loadItems = function () {
+
         console.log("loading items");
         $.ajax({
             url: self.idsURL,
             success: function (result) {
                 self.ids = result;
-                //console.log(self.ids.length);
-                for (j = 0; j < self.ids.length; j++) {
-                    self.items[j] = {};
-                    //console.log(self.items[j]);
-                    self.items[j].three = new Item(self.ids[j].three, self);
-                    self.items[j].four = new Item(self.ids[j].four, self);
-                }
-                console.log(self.items.length);
+                self.bindselector();
+                self.loadFromMaterial();
+
+                // for (j = 0; j < self.ids.length; j++) {
+                //     self.items[j] = {};
+                //     //console.log(self.items[j]);
+                //     self.items[j].three = new Item(self.ids[j].three, self);
+                //     self.items[j].four = new Item(self.ids[j].four, self);
+                // }
+                // console.log(self.items.length);
 
             }
         });
@@ -29,7 +36,7 @@ function SmithingList(ctrl) {
     self.checkDone = function () {
         var done = true;
         for (i = 0; i < self.items.length; i++) {
-            if (self.items[i].three.buying == undefined || self.items[i].four.selling == undefined) {
+            if (self.items[i].selling == undefined) {
                 done = false;
             }
         }
@@ -39,32 +46,71 @@ function SmithingList(ctrl) {
         }
     }
 
+    self.loadFromMaterial = function () {
+        var material = $('#smithselector').val();
+        var matno;
+        for (j = 0; j < self.ids.length; j++) {
+            if (self.ids[j].name == material) {
+                matno = j;
+                break;
+            }
+        }
+        self.material = {};
+        self.material = new Item(self.ids[matno].bar, self);
+        self.items = [];
+        for (k = 0; k < self.ids[matno].items.length; k++) {
+            self.items[k] = new Item(self.ids[matno].items[k].id, self);
+            if (self.ids[matno].items.makes != undefined) {
+                self.items[k].makes = self.ids[matno].items.makes;
+            } else {
+                self.items[k].makes = 1;
+            }
+            if (self.ids[matno].items.needs != undefined) {
+                self.items[k].needs = self.ids[matno].items.needs;
+            } else {
+                self.items[k].needs = 1;
+            }
+        }
+    }
+
     self.loadTable = function () {
         if (!self.loading) {
             self.loading = true;
             console.log("loading table");
+            $('#material').text(" " + self.material.name);
+            $('#materialprice').text(" " + self.material.buying);
+            self.tabledata = [];
+            
             for (i = 0; i < self.items.length; i++) {
-                if (self.items[i].three.buying != 0 && self.items[i].four.selling != 0) {
-                    var newRow = "<tr><td>" + self.items[i].three.name.replace("(3)", "") +
-                        "</td><td>" + self.items[i].three.buying +
-                        "</td><td>" + self.items[i].four.buying +
-                        "</td><td>" + (parseInt(self.items[i].three.buying) / 3) +
-                        "</td><td>" + (parseInt(self.items[i].four.selling) / 4) +
-                        "</td><td>" + ((parseInt(self.items[i].four.selling) / 4) - (parseInt(self.items[i].three.buying) / 3)) +
-                        "</td></tr>"
-                    $('#decanting tbody').append(newRow);
-                } else {
-                    console.log(self.items[i].three.name);
-                }
+                var data = [self.items[i].name, 
+                self.items[i].makes, 
+                self.items[i].selling, 
+                self.items[i].needs, 
+                (parseInt(self.items[i].makes) * parseInt(self.items[i].selling) - parseInt(self.material.buying) * parseInt(self.items[i].needs))];
+                self.tabledata.push(data);
             }
-            $('#decanting').DataTable({
-                "order": [[5, "desc"]],
-                "paging": false,
-                "bFilter": false
-
-            });
+            if(self.table == undefined){
+                self.table = $('#smithtable').dataTable({
+                    data: self.tabledata,
+                    order: [[4, "desc"]],
+                    paging: false,
+                    bFilter: false
+                });
+            } else {
+                self.table.fnClearTable()
+                self.table.fnAddData(self.tabledata);
+            }
         }
     };
+
+    self.bindselector = function () {
+        $('#smithselector').on('change', function () {
+            console.log("changed material needs reloading");
+            self.loading = false;
+            self.loadFromMaterial();
+        });
+
+    }
 
 
 

@@ -8,7 +8,6 @@ function Item(id, list) {
 
 
     self.load = function () {
-        //item.load(baseurl+itemid);
         self.name = list.ctrl.getItemName(self.id);
         $.ajax({
             type: "GET",
