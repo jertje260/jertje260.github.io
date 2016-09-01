@@ -60,13 +60,13 @@ function SmithingList(ctrl) {
         self.items = [];
         for (k = 0; k < self.ids[matno].items.length; k++) {
             self.items[k] = new Item(self.ids[matno].items[k].id, self);
-            if (self.ids[matno].items.makes != undefined) {
-                self.items[k].makes = self.ids[matno].items.makes;
+            if (self.ids[matno].items[k].makes != undefined) {
+                self.items[k].makes = self.ids[matno].items[k].makes;
             } else {
                 self.items[k].makes = 1;
             }
-            if (self.ids[matno].items.needs != undefined) {
-                self.items[k].needs = self.ids[matno].items.needs;
+            if (self.ids[matno].items[k].needs != undefined) {
+                self.items[k].needs = self.ids[matno].items[k].needs;
             } else {
                 self.items[k].needs = 1;
             }
