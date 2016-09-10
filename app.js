@@ -5,6 +5,7 @@ function WebApp() {
     self.pagelist["/runescape/"] = "\/Runescape\/Templates\/home.html";
     self.pagelist["/runescape/?page=decanting"] = "\/Runescape\/Templates\/decanting.html";
     self.pagelist["/runescape/?page=smithing"] = "\/Runescape\/Templates\/smithing.html";
+    self.pagelist["/runescape/?page=cleaning"] = "\/Runescape\/Templates\/cleaning.html";
     self.pagelist["/"] = "\/Templates\/home.html"
 
     self.init = function () {

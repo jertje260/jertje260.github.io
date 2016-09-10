@@ -32,6 +32,11 @@ function RSCtrl(app, page) {
                 console.log("smithing page loaded");
                 self.loadSmithing();
             });
+        } else if(page == "cleaning"){
+            app.loadPage(app.pagelist["/runescape/?page=cleaning"], function () {
+                console.log("cleaning page loaded");
+                self.loadCleaning();
+            });
         }
     }
 
@@ -48,6 +53,12 @@ function RSCtrl(app, page) {
     self.loadSmithing = function(){
         if(self.smithing == undefined){
             self.smithing = new SmithingList(self);
+        }
+    }
+
+    self.loadCleaning = function(){
+        if(self.cleaning == undefined){
+            self.cleaning = new CleaningList(self);
         }
     }
 
