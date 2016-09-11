@@ -58,7 +58,7 @@ function CleaningList(ctrl) {
                 }
             }
             $('#cleaning').DataTable({
-                "order": [[3, "desc"]],
+                "order": [[4, "desc"]],
                 "paging": false,
                 "bFilter": false
 
