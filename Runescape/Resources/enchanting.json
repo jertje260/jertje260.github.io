@@ -1,0 +1,20 @@
+[{
+    "gem": "sapphire",
+    "ring": [1637,249],
+    "necklace" : [],
+    "bracelet": [],
+    "amulet" : []
+    },{
+    "item": [1639,249]emerald
+    },{
+    "item": [1641,249]ruby
+    },{
+    "item": [1643,249]diamond
+    },{
+    "item": [1645,249]dragonstone
+    },{
+    "item": [199,249]onyx
+    },{
+    "item": [199,249]zenyte
+    },
+]
