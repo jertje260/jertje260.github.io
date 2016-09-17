@@ -116,7 +116,7 @@ function JewelleryList(ctrl) {
             if (self.table == undefined) {
                 self.table = $('#jewellerytable').dataTable({
                     data: self.tabledata,
-                    order: [[4, "desc"]],
+                    order: [[3, "desc"]],
                     paging: false,
                     bFilter: false
                 });
