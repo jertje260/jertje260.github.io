@@ -21,7 +21,7 @@ function DecantingList(ctrl) {
                 //console.log(self.ids.length);
                 for (j = 0; j < self.ids.length; j++) {
                     self.items[j] = {};
-                    //console.log(self.items[j]);
+                    console.log(self.items[j]);
                     self.items[j].three = new Item(self.ids[j].three, self);
                     self.items[j].four = new Item(self.ids[j].four, self);
                 }

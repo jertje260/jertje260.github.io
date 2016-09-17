@@ -18,8 +18,12 @@ body.loading {
 }
 
 .tab{
-    padding-left: 6em;
+    left: 120px;
     position: absolute;
+}
+
+.titletext{
+    padding-left: 20px;
 }
 
 /* Anytime the body has the loading class, our
@@ -42,6 +46,7 @@ body.loading .modal {
 
 .title {
     margin-left: 20px;
+    position: relative;
 }
 
 h1,h2,h3,h4,h5{

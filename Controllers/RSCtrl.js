@@ -2,13 +2,13 @@ function RSCtrl(app, page) {
     var self = this;
     self.baseurl = "https://api.rsbuddy.com/grandExchange?a=guidePrice&i=";
     self.pngurl = "http://cdn.rsbuddy.com/items/"; //+id.png 
-    self.itemsUrl = "\/Runescape\/Resources\/objects.json"
+    self.itemsUrl = "\/Runescape\/Resources\/newObjects.json"
     self.decanting;
     self.smithing;
-    self.itemList = [];
+    self.itemList;
 
     self.load = function () {
-        if (self.itemList.length == 0) {
+        if (self.itemList == undefined) {
             $.ajax({
                 url: self.itemsUrl,
                 success: function (data) {
@@ -37,6 +37,11 @@ function RSCtrl(app, page) {
                 console.log("cleaning page loaded");
                 self.loadCleaning();
             });
+        } else if(page == "jewellery"){
+            app.loadPage(app.pagelist["/runescape/?page=jewellery"], function () {
+                console.log("cleaning page loaded");
+                self.loadJewellery();
+            });
         }
     }
 
@@ -62,12 +67,14 @@ function RSCtrl(app, page) {
         }
     }
 
-    self.getItemName = function (id) {
-        for (i = 0; i < self.itemList.length; i++) {
-            if (self.itemList[i].id == id) {
-                return self.itemList[i].name;
-            }
+    self.loadJewellery = function(){
+        if(self.jewellery == undefined){
+            self.jewellery = new JewelleryList(self);
         }
+    }
+
+    self.getItemName = function (id) {
+        return self.itemList[id].name;
     }
 
 
