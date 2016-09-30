@@ -76,14 +76,22 @@ function DecantingList(ctrl) {
         console.log('recalculating');
         var t = $('#3').val();
         var f = $('#4').val();
-        var out = (f / 4 - t / 3);
+        var out = (f / 4 - t / 3).toString();
+        var i = out.indexOf('.') + 4;
+        if (out.length > i) {
+            out = out.substr(0, i);
+        }
         // console.log(t);
         // console.log(f);
         // console.log(out);
         $('#output').text(out);
-        
 
-        $('#100').text(f*75-t*100);
+        var bla = (f * 75 - t * 100).toString();
+        var j = bla.indexOf('.') + 4;
+        if (bla.length > j) {
+            bla = bla.substr(0, j);
+        }
+        $('#100').text(bla);
     }
 
     self.loadItems();
