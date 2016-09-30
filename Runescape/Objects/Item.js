@@ -5,16 +5,16 @@ function Item(id, list) {
     self.buying;
     self.selling;
     self.average;
-    self.storeprice;
-    self.lowalch;
-    self.highalch
+    // self.storeprice;
+    // self.lowalch;
+    // self.highalch
 
 
     self.load = function () {
         self.name = list.ctrl.getItemName(self.id);
-        self.storeprice = list.ctrl.getStorePrice(self.id);
-        self.lowalch = 0.3*self.storeprice;
-        self.highalch = 0.6*self.storeprice;
+        // self.storeprice = list.ctrl.getStorePrice(self.id);
+        // self.lowalch = 0.3*self.storeprice;
+        // self.highalch = 0.6*self.storeprice;
         $.ajax({
             type: "GET",
             datatype: "json",
