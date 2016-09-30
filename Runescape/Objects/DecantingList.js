@@ -81,6 +81,9 @@ function DecantingList(ctrl) {
         // console.log(f);
         // console.log(out);
         $('#output').text(out);
+        
+
+        $('#100').text(f*75-t*100);
     }
 
     self.loadItems();
