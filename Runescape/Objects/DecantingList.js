@@ -53,7 +53,7 @@ function DecantingList(ctrl) {
                 if (self.items[i].three.buying != 0 && self.items[i].four.selling != 0) {
                     var newRow = "<tr><td>" + self.items[i].three.name.replace("(3)", "") +
                         "</td><td>" + self.items[i].three.buying +
-                        "</td><td>" + self.items[i].four.buying +
+                        "</td><td>" + self.items[i].four.selling +
                         "</td><td>" + (parseInt(self.items[i].three.buying) / 3) +
                         "</td><td>" + (parseInt(self.items[i].four.selling) / 4) +
                         "</td><td>" + ((parseInt(self.items[i].four.selling) / 4) - (parseInt(self.items[i].three.buying) / 3)) +
