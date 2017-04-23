@@ -25,6 +25,9 @@ body.loading {
 .titletext{
     padding-left: 20px;
 }
+#factorio{
+    padding-left: 20px;
+}
 
 /* Anytime the body has the loading class, our
    modal element will be visible */

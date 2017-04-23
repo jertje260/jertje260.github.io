@@ -7,7 +7,8 @@ function WebApp() {
     self.pagelist["/runescape/?page=smithing"] = "\/Runescape\/Templates\/smithing.html";
     self.pagelist["/runescape/?page=cleaning"] = "\/Runescape\/Templates\/cleaning.html";
     self.pagelist["/runescape/?page=jewellery"] = "\/Runescape\/Templates\/jewellery.html";
-    self.pagelist["/"] = "\/Templates\/home.html"
+    self.pagelist["/"] = "\/Templates\/home.html";
+    self.pagelist["/factorio"] = "\/Templates\/factorio.html"
 
     self.init = function () {
         console.log("initializing");
@@ -70,7 +71,7 @@ function WebApp() {
                     break;
             }
             self.setCtrl(new RSCtrl(self, params.page));
-        } else if (location.pathname == "?game=factorio") {
+        } else if (params.game == "factorio") {
             $('#Factorio').addClass('active');
             document.title = "Factorio"
             self.setCtrl(new FactorioCtrl(self));
